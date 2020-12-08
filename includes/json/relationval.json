@@ -1,0 +1,34 @@
+{
+	"join": "LEFT",
+	"renderAs": {
+		"detail": {
+			"control": "textbox",
+			"class": "sysstring",
+			"identifier": "",
+			"disabled": true,
+			"length": "50"
+		},
+		"edit": {
+			"control": "menu",
+			"class": "sysstring",
+			"identifier": "",
+			"length": "50"
+		},
+		"list": {
+			"control": "text",
+			"class": "sysstring",
+			"identifier": "",
+			"length": "50"
+		},
+		"new": {
+			"control": "menu",
+			"identifier": "",
+			"class": "sysstring",
+			"length": "50"
+		}
+	},
+	"default": "{auto}",
+	"defaults": {
+		"G1": "{auto}"
+	}
+}

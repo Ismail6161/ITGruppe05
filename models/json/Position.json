@@ -1,0 +1,6 @@
+{
+"Anzahl":{"type":"integer","stereotype":"primitive","label":"Anzahl"},
+"Gesamtpreis":{"type":"currency","stereotype":"primitive","label":"Gesamtpreis"},
+"_Reservierung":{"type":"foreign","stereotype":"relation","class":"Reservierung","classAlias":"Reservierung","renderAs": {"edit": {"required": "true"},"new": {"required": "true"}}, "join": "INNER"},
+"_Speise":{"type":"foreign","stereotype":"relation","class":"Speise","classAlias":"Speise","renderAs": {"edit": {"required": "true"},"new": {"required": "true"}}, "join": "INNER"}
+}
