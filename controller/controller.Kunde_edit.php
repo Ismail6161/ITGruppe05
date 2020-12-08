@@ -1,4 +1,5 @@
 <?php
+echo $a=$a;
 Core::checkAccessLevel(1);
 Core::$title="Edit: Kunde";
 $id=$_GET["id"];
