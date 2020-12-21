@@ -9,7 +9,7 @@
  * @author Markus Nippa<markus.nippa@hs-pforzheim.de.com>
  */
 class DB {
-    public $gitHubtestvariable;
+
     public static $access = false;
 
     /*  @var $core Core */
@@ -70,6 +70,9 @@ class DB {
     Public $created_id;
     Public $owner_id;
     Public $modified_id;
+    Public static $SQLautojoin=true;
+    Public static $SQLrestrict=true;
+    Public static $SQLidentifier=true;
 
     const TYPE_BOOLEAN = 1;
     const TYPE_INTEGER = 2;
@@ -213,49 +216,56 @@ class DB {
             $param[] = $id;
         }
 
-
-        $ident = static::$settings["identifier"];
         $classname = static::class;
-        $SQLArray = db::querySplit($SQL);
-        $SQLArray["SELECT"] = "SELECT " . $ident . " AS identifier, " . substr($SQLArray["SELECT"], 6);
-        $SQL = db::queryJoin($SQLArray);
 
+        if (static::$SQLidentifier) {
+            $ident = static::$settings["identifier"];
+            $SQLArray = db::querySplit($SQL);
+            $SQLArray["SELECT"] = "SELECT " . $SQLArray["DISTINCT"] . $ident . " AS identifier, " . substr($SQLArray["SELECT"], 6 + strlen($SQLArray["DISTINCT"]));
+            $SQL = db::queryJoin($SQLArray);
+        } else {
+            $SQLArray = db::querySplit($SQL);
+            $SQLArray["SELECT"] = "SELECT " . $SQLArray["DISTINCT"] . substr($SQLArray["SELECT"], 6 + strlen($SQLArray["DISTINCT"]));
+            $SQL = db::queryJoin($SQLArray);
+        }
 
-        foreach (static::$dataScheme as $key => $scheme) {
-            if (isset($scheme["stereotype"])) {
-                if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
-                    $SQLArray = db::querySplit($SQL);
-                    $relationClass = $scheme["class"];
-                    $classAlias = $scheme["classAlias"];
-                    $basis = static::class;
-                    $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
-                    $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
-                    $from = stripos($SQLArray["SELECT"], " FROM");
-                    $length = strlen($SQLArray["SELECT"]);
-                    $left = substr($SQLArray["SELECT"], 0, $from);
-                    $right = substr($SQLArray["SELECT"], -($length - $from));
-                    if ($scheme["identifier"] == "") {
-                        $scheme["identifier"] = $relationClass::$settings["identifier"];
-                    }
-                    if (static::$activeViewport != "") {
-                        if (isset($scheme["renderAs"][static::$activeViewport]["identifier"])) {
-                            if ($scheme["renderAs"][static::$activeViewport]["identifier"] != "") {
-                                $scheme["identifier"] = $scheme["renderAs"][static::$activeViewport]["identifier"];
+        if (static::$SQLautojoin) {
+            foreach (static::$dataScheme as $key => $scheme) {
+                if (isset($scheme["stereotype"])) {
+                    if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
+                        $SQLArray = db::querySplit($SQL);
+                        $relationClass = $scheme["class"];
+                        $classAlias = $scheme["classAlias"];
+                        $basis = static::class;
+                        $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
+                        $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
+                        $from = stripos($SQLArray["SELECT"], " FROM");
+                        $length = strlen($SQLArray["SELECT"]);
+                        $left = substr($SQLArray["SELECT"], 0, $from);
+                        $right = substr($SQLArray["SELECT"], -($length - $from));
+                        if ($scheme["identifier"] == "") {
+                            $scheme["identifier"] = $relationClass::$settings["identifier"];
+                        }
+                        if (static::$activeViewport != "") {
+                            if (isset($scheme["renderAs"][static::$activeViewport]["identifier"])) {
+                                if ($scheme["renderAs"][static::$activeViewport]["identifier"] != "") {
+                                    $scheme["identifier"] = $scheme["renderAs"][static::$activeViewport]["identifier"];
+                                }
                             }
                         }
+
+
+
+                        if (static::$SQLidentifier) {
+                            $left = $left . ", " . $scheme["identifier"] . " AS " . $key . "_identifier";
+                        }
+                        $SQLArray["SELECT"] = $left . $right;
+                        $SQL = db::queryJoin($SQLArray);
                     }
-
-
-
-                    $left = $left . ", " . $scheme["identifier"] . " AS " . $key . "_identifier";
-                    $SQLArray["SELECT"] = $left . $right;
-                    $SQL = db::queryJoin($SQLArray);
-                    $a = 55;
                 }
             }
         }
-
-        if (static::$access == true) {
+        if (static::$access == true && static::$SQLrestrict) {
             $access = static::$settings["access"];
             if (is_array($access)) {
                 $gruppe = "G" . Core::$user->Gruppe;
@@ -293,7 +303,7 @@ class DB {
             }
         }
 
-        Core::log($SQL);
+         Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $db = Core::$pdo;
         $stmt = $db->prepare($SQL);
         $result = $stmt->execute($param);
@@ -484,46 +494,56 @@ class DB {
                 $SQL = static::SQL_SELECT_ALL;
 
         }
-        $ident = static::$settings["identifier"];
         $classname = static::class;
-        $SQLArray = db::querySplit($SQL);
-        $SQLArray["SELECT"] = "SELECT ".$SQLArray["DISTINCT"] . $ident . " AS identifier, " . substr($SQLArray["SELECT"], 6+strlen($SQLArray["DISTINCT"]));
-        $SQL = db::queryJoin($SQLArray);
-
-        foreach (static::$dataScheme as $key => $scheme) {
-            if (isset($scheme["stereotype"])) {
-                if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
-                    $SQLArray = db::querySplit($SQL);
-                    $relationClass = $scheme["class"];
-                    $classAlias = $scheme["classAlias"];
-                    $basis = static::class;
-                    $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
-                    $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
-                    $from = stripos($SQLArray["SELECT"], " FROM");
-                    $length = strlen($SQLArray["SELECT"]);
-                    $left = substr($SQLArray["SELECT"], 0, $from);
-                    $right = substr($SQLArray["SELECT"], -($length - $from));
-                    if ($scheme["identifier"] == "") {
-                        $scheme["identifier"] = $relationClass::$settings["identifier"];
-                    }
-                    if (static::$activeViewport != "") {
-                        if (isset($scheme["renderAs"][static::$activeViewport]["identifier"])) {
-                            if ($scheme["renderAs"][static::$activeViewport]["identifier"] != "") {
-                                $scheme["identifier"] = $scheme["renderAs"][static::$activeViewport]["identifier"];
+        if (static::$SQLidentifier) {
+            $ident = static::$settings["identifier"];
+            $SQLArray = db::querySplit($SQL);
+            $SQLArray["SELECT"] = "SELECT " . $SQLArray["DISTINCT"] . $ident . " AS identifier, " . substr($SQLArray["SELECT"], 6 + strlen($SQLArray["DISTINCT"]));
+            $SQL = db::queryJoin($SQLArray);
+        }else{
+            $SQLArray = db::querySplit($SQL);
+            $SQLArray["SELECT"] = "SELECT " . $SQLArray["DISTINCT"] . substr($SQLArray["SELECT"], 6 + strlen($SQLArray["DISTINCT"]));
+            $SQL = db::queryJoin($SQLArray);  
+        }
+        if (static::$SQLautojoin) {
+            foreach (static::$dataScheme as $key => $scheme) {
+                if (isset($scheme["stereotype"])) {
+                    if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
+                        $SQLArray = db::querySplit($SQL);
+                        $relationClass = $scheme["class"];
+                        $classAlias = $scheme["classAlias"];
+                        $basis = static::class;
+                        $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
+                        $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
+                        $from = stripos($SQLArray["SELECT"], " FROM");
+                        $length = strlen($SQLArray["SELECT"]);
+                        $left = substr($SQLArray["SELECT"], 0, $from);
+                        $right = substr($SQLArray["SELECT"], -($length - $from));
+                        if ($scheme["identifier"] == "") {
+                            $scheme["identifier"] = $relationClass::$settings["identifier"];
+                        }
+                        if (static::$activeViewport != "") {
+                            if (isset($scheme["renderAs"][static::$activeViewport]["identifier"])) {
+                                if ($scheme["renderAs"][static::$activeViewport]["identifier"] != "") {
+                                    $scheme["identifier"] = $scheme["renderAs"][static::$activeViewport]["identifier"];
+                                }
                             }
                         }
+
+
+                        if (static::$SQLidentifier) {
+                            $left = $left . ", " . $scheme["identifier"] . " AS " . $key . "_identifier";
+                        }
+                        $SQLArray["SELECT"] = $left . $right;
+                        $SQL = db::queryJoin($SQLArray);
+                        $a = 55;
                     }
-
-
-
-                    $left = $left . ", " . $scheme["identifier"] . " AS " . $key . "_identifier";
-                    $SQLArray["SELECT"] = $left . $right;
-                    $SQL = db::queryJoin($SQLArray);
-                    $a = 55;
                 }
             }
         }
-        if (static::$access == true) {
+ 
+
+        if (static::$access == true && static::$SQLrestrict) {
             $access = static::$settings["access"];
             if (is_array($access)) {
 
@@ -571,7 +591,8 @@ class DB {
 
         $db = Core::$pdo;
         $daten[] = array();
-        Core::log($SQL);
+        
+        Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $stmt = $db->prepare($SQL);
         $result = $stmt->execute($param);
         // Debugging und resultierende SQL-Anweisung
@@ -632,7 +653,7 @@ class DB {
             }
         }
 
-
+          Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $stmt = $db->prepare($SQL);
         $result = $stmt->execute($param);
 
@@ -664,7 +685,7 @@ class DB {
             $SQL = str_ireplace(" WHERE ", " , `modified_id`=? WHERE ", $SQL);
         }
 
-
+          Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $stmt = $db->prepare($SQL);
 
         if ($param[0] == "") {     // Aus SET-Anweisung die Felder extrahieren
@@ -723,19 +744,22 @@ class DB {
      */
     public static function query($SQL, $param = array()) {
         $SQLArray = db::querySplit($SQL);
-        foreach (static::$dataScheme as $key => $scheme) {
-            if (isset($scheme["stereotype"])) {
-                if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
-                    $relationClass = $scheme["class"];
-                    $classAlias = $scheme["classAlias"];
-                    $basis = static::class;
-                    $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
-                    $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
-                    $SQL = db::queryJoin($SQLArray);
+         if (static::$SQLautojoin) {
+            
+            foreach (static::$dataScheme as $key => $scheme) {
+                if (isset($scheme["stereotype"])) {
+                    if ($scheme["stereotype"] == "relation" && ($scheme["join"] == "INNER" || $scheme["join"] == "LEFT" || $scheme["join"] == "RIGHT" )) {
+                        $relationClass = $scheme["class"];
+                        $classAlias = $scheme["classAlias"];
+                        $basis = static::class;
+                        $newJoin = " " . $scheme["join"] . " JOIN $relationClass AS $classAlias ON $relationClass.id=$basis.$key";
+                        $SQLArray["JOIN"] = $SQLArray["JOIN"] . $newJoin;
+                        $SQL = db::queryJoin($SQLArray);
+                    }
                 }
             }
         }
-        if (static::$access == true) {
+        if (static::$access == true && static::$SQLrestrict) {
             $access = static::$settings["access"];
             if (is_array($access)) {
                 $gruppe = "G" . Core::$user->Gruppe;
@@ -762,6 +786,7 @@ class DB {
             }
         }
         $db = Core::$pdo;
+          Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $stmt = $db->prepare($SQL);
         $result = $stmt->execute($param);
         self::stmtDebug($stmt);
@@ -785,6 +810,7 @@ class DB {
      */
     public static function execQuery($SQL, $param = array()) {
         $db = Core::$pdo;
+          Core::log(get_called_class()."#".__FUNCTION__."(): ".$SQL);
         $stmt = $db->prepare($SQL);
         $result = $stmt->execute($param);
         self::stmtDebug($stmt);

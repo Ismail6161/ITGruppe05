@@ -7,4 +7,10 @@
 <?php } ?>
 <a href="?task=speicherstande" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Speicherstände</a>
 <a href="?task=Reservierung" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Reservierung</a>
+<a href="?task=Speisen" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Speisen</a>
+<a href="?task=Speiseneu" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Speiseneu</a>
+<a href="?task=Positionsliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Bestellliste</a>
+<a href="?task=Reservierungsliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Reservierungsliste</a>
+<a href="?task=Kundenliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Kundenliste</a>
+<a href="?task=Positionsliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Positionsliste</a>
 </div>

@@ -22,5 +22,12 @@ Core::setTaskMap(array(
 'datenexport'=>'controller.datenexport.php',
 'speicherstand_edit'=>'controller.speicherstand_edit.php',
 'Reservierung'=>'controller.Reservierung.php',
+'Speisen'=>'controller.Speisen.php',
+'Speiseneu'=>'controller.Speiseneu.php',
+'Positionansicht'=>'controller.Positionansicht.php',
+'Positionsliste'=>'controller.Positionsliste.php',
+'Reservierungsliste'=>'controller.Reservierungsliste.php',
+'Kundenliste'=>'controller.Kundenliste.php',
+'Bestellung'=>'controller.Bestellung.php',
     
 ));

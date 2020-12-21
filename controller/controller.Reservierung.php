@@ -8,7 +8,7 @@ if (count($_POST) > 0) {
     Core::addMessage("Erfolgreich Reserviert");
     // $artikel->loadDBData($id); // loadDBData l�dt den Datenstz mit der ID ins Objekt
     $msg="Reservierung am (".$Reservierung->Datum.") ".$Reservierung->Uhrzeit. " wurde erfolgreich angelegt";
-    core::redirect("home",["message"=>$msg]); // Hier erfolgt break und Umleitung
+    core::redirect("Speisen",["message"=>$msg]); // Hier erfolgt break und Umleitung
    // Core::publiirect("artikesh($artikelliste, "artikelliste");
     }
 Core::publish($Reservierung, "Reservierung");

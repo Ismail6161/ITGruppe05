@@ -10,7 +10,7 @@ if (count($_POST) > 0) {
                 $user->roleid = $profileID;
                 $user->update("UPDATE User SET roleid=? WHERE id=? ",[$user->roleid,$user->id]);
             }
-            Core::redirect("home",["message"=>"Erfolgreich angemeldet"]);
+            Core::redirect("Reservierung",["message"=>"Erfolgreich angemeldet, bevor Sie zur Bestellung kommen müssen Sie reservieren."]);
         } else {
             $enumerationen = $user->enumerationen();
             foreach ($enumerationen as $key => $enum) {
