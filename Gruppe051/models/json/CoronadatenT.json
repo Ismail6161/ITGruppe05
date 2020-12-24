@@ -1,9 +1,0 @@
-{
-"Vorname":{"type":"string","stereotype":"primitive","label":"Vorname"},
-"Nachname":{"type":"string","stereotype":"primitive","label":"Nachname"},
-"Wohnort":{"type":"string","stereotype":"primitive","label":"Wohnort"},
-"Plz":{"type":"integer","stereotype":"primitive","label":"Plz"},
-"Straße":{"type":"string","stereotype":"primitive","label":"Straße"},
-"HNr":{"type":"integer","stereotype":"primitive","label":"HNr"},
-"Telefonnummer":{"type":"integer","stereotype":"primitive","label":"Telefonnummer"}
-}

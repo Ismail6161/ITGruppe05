@@ -1,5 +1,0 @@
-{
-"Kundennummer":{"type":"string","stereotype":"primitive","label":"Kundennummer"},
-"EMail":{"type":"string","stereotype":"primitive","label":"EMail"},
-"_User_uid":{"type":"foreign","stereotype":"relation","class":"User","classAlias":"User","renderAs": {"new": {"control": "hidden"},"edit": {"control": "hidden"},"list": {"control": "hidden"},"detail": {"control": "hidden"}}}
-}

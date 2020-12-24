@@ -1,1 +1,0 @@
-Damit der Ordner im Git angezeigt und commited wird

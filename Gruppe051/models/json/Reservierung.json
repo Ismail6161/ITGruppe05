@@ -1,8 +1,0 @@
-{
-"Datum":{"type":"date","stereotype":"primitive","label":"Datum"},
-"Uhrzeit":{"type":"float","stereotype":"primitive","label":"Uhrzeit"},
-"Tischvergabe":{"type":"integer","stereotype":"primitive","label":"Tischvergabe"},
-"Gesamtbetrag":{"type":"currency","stereotype":"primitive","label":"Gesamtbetrag"},
-"Coronadaten":{"type":"CoronadatenT","stereotype":"structure","group":"true","label":"CoronadatenT"},
-"_Kunde":{"type":"foreign","stereotype":"relation","class":"Kunde","classAlias":"Kunde","renderAs": {"edit": {"required": "true"},"new": {"required": "true"}}, "join": "INNER"}
-}
