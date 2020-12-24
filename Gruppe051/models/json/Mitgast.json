@@ -1,0 +1,5 @@
+{
+"Vorname":{"type":"string","stereotype":"primitive","label":"Vorname"},
+"Nachname":{"type":"string","stereotype":"primitive","label":"Nachname"},
+"_Reservierung":{"type":"foreign","stereotype":"relation","class":"Reservierung","classAlias":"Reservierung","renderAs": {"edit": {"required": "true"},"new": {"required": "true"}}, "join": "INNER"}
+}
