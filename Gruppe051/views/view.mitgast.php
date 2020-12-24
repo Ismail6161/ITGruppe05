@@ -3,7 +3,7 @@ Haben Sie Gäste? Falls ja, geben Sie bitte die benötigten Daten an.
 ?>
 
 <div data-role="ui-bar ui-bar-a">
-<h1>Ich habe keine Gäste
+<h3>Ich habe keine Gäste
 <div class="tooltip_hs">
 <a href="?task=Speisen<?=$icon?>" data-ajax="false" data-role="button"  class="ui-btn ui-icon-<?=$icon?> ui-btn-icon-notext ui-corner-all ui-btn-inline">WEITER</a>
 <span style="font-size: 15px" class="tooltiptext">Zur Speisekarte<?=$hover?></span>

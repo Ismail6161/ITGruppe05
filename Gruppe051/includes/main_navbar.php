@@ -14,4 +14,5 @@
 <a href="?task=Kundenliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Kundenliste</a>
 <a href="?task=Positionsliste" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Positionsliste</a>
 <a href="?task=mitgast" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Mitgast</a>
+<a href="?task=mitgastansicht" data-role="button" data-icon="bars" data-theme="a" data-ajax="false" >Mitgastansicht</a>
 </div>

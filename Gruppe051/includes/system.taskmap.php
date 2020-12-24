@@ -29,6 +29,7 @@ Core::setTaskMap(array(
 'Reservierungsliste'=>'controller.Reservierungsliste.php',
 'Kundenliste'=>'controller.Kundenliste.php',
 'Bestellung'=>'controller.Bestellung.php',
-'mitgast'=>'controller.mitgast.php'
+'mitgast'=>'controller.mitgast.php',
+'mitgastansicht'=>'controller.mitgastansicht.php',
     
 ));
