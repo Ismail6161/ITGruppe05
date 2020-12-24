@@ -10,7 +10,6 @@
 </div>
 <div data-role="ui-bar ui-bar-a">
 <h1>Speisekarte
-    alo
 </div>
         <table data-role="table" id="tbl_Speise" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
             <thead>
