@@ -26,7 +26,8 @@ rules: {
 		digits: true
 	},
 	Gesamtpreis: {
-		currency: true
+		float: true,
+		float: true
 	},
 	_Reservierung: {
 		string: true,

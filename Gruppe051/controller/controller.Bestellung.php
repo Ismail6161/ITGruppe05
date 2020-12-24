@@ -31,7 +31,7 @@ $_Speise = Speise::findAll(Speise::SQL_SELECT_IGNORE_DERIVED);
 Core::publish($_Speise, "_Speise");
 
 
-Reservierung::$settings["identifier"]="Coronadaten_Nachname";
+Reservierung::$settings["identifier"]="Datum";
 $_Reservierung = Reservierung::findAll(Reservierung::SQL_SELECT_IGNORE_DERIVED);
 Core::publish($_Reservierung, "_Reservierung");
 

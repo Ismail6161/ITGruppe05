@@ -1,7 +1,27 @@
 {
-"Speisenummer":{"type":"string","stereotype":"primitive","label":"Speisenummer"},
-"Bezeichnung":{"type":"string","stereotype":"primitive","label":"Bezeichnung"},
-"Bild":{"type":"picture","stereotype":"primitive","label":"Bild"},
-"Einzelpreis":{"type":"currency","stereotype":"primitive","label":"Einzelpreis"},
-"Beschreibung":{"type":"string","stereotype":"primitive","label":"Beschreibung"}
+	"Speisenummer": {
+		"type": "string",
+		"stereotype": "primitive",
+		"label": "Speisenummer"
+	},
+	"Bezeichnung": {
+		"type": "string",
+		"stereotype": "primitive",
+		"label": "Bezeichnung"
+	},
+	"Bild": {
+		"type": "picture",
+		"stereotype": "primitive",
+		"label": "Bild"
+	},
+	"Einzelpreis": {
+		"type": "float",
+		"stereotype": "primitive",
+		"label": "Einzelpreis"
+	},
+	"Beschreibung": {
+		"type": "string",
+		"stereotype": "primitive",
+		"label": "Beschreibung"
+	}
 }

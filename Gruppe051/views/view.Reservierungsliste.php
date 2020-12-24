@@ -17,6 +17,7 @@
                     <th><?= $Kunde->renderHeader("Coronadaten_HNr"); ?></th>
                     <th><?= $Kunde->renderHeader("Coronadaten_Telefonnummer"); ?></th>
                     <th><?= $Kunde->renderHeader("_Kunde"); ?></th>
+                   
                     
                 </tr>
             </thead>
@@ -34,7 +35,7 @@
                         <td><?= $Kunde->render("Coronadaten_HNr"); ?></td>
                         <td><?= $Kunde->render("Coronadaten_Telefonnummer"); ?></td>
                         <td><a href="?task=Kundenliste<?=$_Kunde->id?>"><?= $Kunde->render("_Kunde"); ?></a></td>
-                        
+                         
                     <?php } ?>
                 </tr>
             </tbody>
