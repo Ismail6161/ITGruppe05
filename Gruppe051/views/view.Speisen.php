@@ -9,7 +9,7 @@
 <span style="font-size: 15px" class="tooltiptext">Bestellung hier abgeben <?=$hover?></span>
 </div>
 <div data-role="ui-bar ui-bar-a">
-<h1>Speisekarte1
+<h1>Speisekarte
 </div>
         <table data-role="table" id="tbl_Speise" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
             <thead>
