@@ -37,6 +37,10 @@
                         <td><?= $Kunde->render("Coronadaten_Telefonnummer"); ?></td>
                         <td><a href="?task=Kundenliste<?=$_Kunde->id?>"><?= $Kunde->render("_Kunde"); ?></a></td>
                         <td><?= $Kunde->render("Tischvergabe"); ?></td>
-                    <?php } ?>
+                        <td>
+                        <a href="?task=Reservierung_detail&id=<?=$Kunde->id?>" data-ajax="false" data-role="button"  class="ui-btn ui-icon-pencil ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>
+                        <a href="?task=Reservierung_delete&id=<?=$Kunde->id?>" data-ajax="false" data-role="button"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline" onclick="return confirm("Soll der Datensatz mit der ID: <?=$Klasse->id." wirklich gelöscht werden?"?>")">delete</a>
+                        </td>
+                            <?php } ?>
                 </tr>
             </tbody>
