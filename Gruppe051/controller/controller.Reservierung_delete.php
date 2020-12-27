@@ -1,5 +1,5 @@
 <?php
-Core::checkAccessLevel(4);
+Core::checkAccessLevel(1);
 if(isset($_GET['id'])){
 $result=Reservierung::delete(filter_input(INPUT_GET, "id"));
 if($result){

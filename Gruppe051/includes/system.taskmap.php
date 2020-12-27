@@ -30,5 +30,9 @@ Core::setTaskMap(array(
 'Kundenliste'=>'controller.Kundenliste.php',
 'Bestellung'=>'controller.Bestellung.php',
 'mitgast'=>'controller.mitgast.php',
-'Position_detail'=>'controller.Position_detail.php'  
+'Position_detail'=>'controller.Position_detail.php',
+'Position_delete'=>'controller.Position_delete.php',
+'Reservierung_detail'=>'controller.Reservierung_detail.php',
+'Reservierung_delete'=>'controller.Reservierung_delete.php',
+'Reservierungstisch'=>'controller.Reservierungstisch.php',   
 ));
