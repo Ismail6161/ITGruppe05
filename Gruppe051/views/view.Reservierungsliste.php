@@ -17,6 +17,7 @@
                     <th><?= $Kunde->renderHeader("Coronadaten_HNr"); ?></th>
                     <th><?= $Kunde->renderHeader("Coronadaten_Telefonnummer"); ?></th>
                     <th><?= $Kunde->renderHeader("_Kunde"); ?></th>
+                    <th><?= $Kunde->renderHeader("Tischvergabe"); ?></th>
                    
                     
                 </tr>
@@ -24,9 +25,9 @@
             <tbody>
                 <?php foreach ($Reservierung as $Kunde) { ?>
                     <tr>
-                        <td><?= $Kunde->render("Datum"); ?></td>
+                        <td><a href="?task=Reservierungstisch&id=<?=$Kunde->id?>"><?= $Kunde->render("Datum"); ?></a></td>
                         <td><?= $Kunde->render("Uhrzeit"); ?></td>
-                        
+                       
                         <td><?= $Kunde->render("Coronadaten_Vorname"); ?></td>
                         <td><?= $Kunde->render("Coronadaten_Nachname"); ?></td>
                         <td><?= $Kunde->render("Coronadaten_Wohnort"); ?></td>
@@ -35,7 +36,7 @@
                         <td><?= $Kunde->render("Coronadaten_HNr"); ?></td>
                         <td><?= $Kunde->render("Coronadaten_Telefonnummer"); ?></td>
                         <td><a href="?task=Kundenliste<?=$_Kunde->id?>"><?= $Kunde->render("_Kunde"); ?></a></td>
-                         
+                        <td><?= $Kunde->render("Tischvergabe"); ?></td>
                     <?php } ?>
                 </tr>
             </tbody>
