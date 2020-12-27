@@ -1,5 +1,7 @@
 <?php $Bestellung = Core::import("Bestellung");
     ?>
+<a href="?task=Positionsliste" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all" align="right">No text</a>
+
 <form id="form_Bestellung" method="post" action="" data-ajax="false" enctype="multipart/form-data"> 
 <div class="ui-field-contain">
 <?php
