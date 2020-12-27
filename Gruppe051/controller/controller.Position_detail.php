@@ -1,20 +1,19 @@
 <?php
 Core::setView("Position_detail", "view1", "edit");
 Core::$title = "Artikeldaten ändern";
-$artikel = new Position;
+$Bestellung = new Position;
+$Bestellung->loadDBData($_GET['id']);
 if (count($_POST) > 0) {
-    $artikel->loadFormData();
-    $result=$artikel->update();
-    if ($_FILES['bild']['name'] != "") {
-        $artikel->updateFile("bild");
-    }
+    $Bestellung->loadFormData();
+    $result=$Bestellung->update();
+    
     if($result){
         Core::addMessage("Daten erfolgreich gespeichert");
     }else{
         Core::addError("Es ist ein Fehler beim Speichern aufgetreten");
     }
 }
-$artikel->loadDBData($_GET['id']); // loadDBData lädt den Datenstz mit der ID ins Objekt
+ // loadDBData lädt den Datenstz mit der ID ins Objekt
 
 
 Speise::$settings["identifier"]="Bezeichnung";
@@ -26,4 +25,4 @@ Reservierung::$settings["identifier"]="Datum";
 $_Reservierung = Reservierung::findAll(Reservierung::SQL_SELECT_IGNORE_DERIVED);
 Core::publish($_Reservierung, "_Reservierung");
 
-Core::publish($artikel, "artikel");
+Core::publish($Bestellung, "Bestellung");

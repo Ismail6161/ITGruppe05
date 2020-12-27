@@ -3,7 +3,7 @@
 ?>
         <?php $Speise = new Speise; ?>
 <div data-role="ui-bar ui-bar-a">
-<h1>Bestellung abgeben
+<h3>Bestellung abgeben
 <div class="tooltip_hs">
 <a href="?task=Bestellung<?=$icon?>" data-ajax="false" data-role="button"  class="ui-btn ui-icon-<?=$icon?> ui-btn-icon-notext ui-corner-all ui-btn-inline">HIER</a>
 <span style="font-size: 15px" class="tooltiptext">Bestellung hier abgeben <?=$hover?></span>

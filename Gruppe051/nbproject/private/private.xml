@@ -5,13 +5,14 @@
         <group>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Reservierungsliste.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/index.php</file>
-            <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Speisen.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Positionsliste.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/controller/controller.Bestellung.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/controller/controller.Positionsliste.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Speiseneu.php</file>
-            <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/models/model.Position.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Bestellung.php</file>
+            <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.mitgast.php</file>
+            <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/views/view.Position_detail.php</file>
+            <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/controller/controller.Position_detail.php</file>
             <file>file:/C:/xampp/htdocs/ITGruppe05/ITGruppe05/Gruppe051/controller/controller.Reservierungsliste.php</file>
         </group>
     </open-files>
