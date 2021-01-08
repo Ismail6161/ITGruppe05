@@ -23,7 +23,7 @@ $Mitgast->renderLabel("_Reservierung");$Mitgast->render("_Reservierung");
 
 ?>
 
-<label for="speichern"></label><button type="submit" name="speichern" id="speichern" value="1" >weiteren Gast eintragen</button>
+<label for="speichern"></label><button type="submit" name="speichern" id="speichern" value="1" >Gast eintragen</button>
 <label><a href="?task=Speisen" for="speichern"></label><button type="submit" name="speichern" id="speichern" value="1" >weiter zur Speisekarte</button>
 </div>
 </form>

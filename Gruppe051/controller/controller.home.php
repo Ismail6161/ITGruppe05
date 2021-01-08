@@ -1,4 +1,5 @@
 <?php
+
 $user = new User;
 if (Core::$user->id==""){
     Core::redirect("login", ["message"=>"Herzlich Willkommen"]);

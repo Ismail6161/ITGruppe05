@@ -4,6 +4,9 @@
         <?php $Kunde = new Mitgast; ?>
 
         <table data-role="table" id="tbl_Mitgast" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+<form>
+<input id="filterTable-input" data-type="search">
+</form>
             <thead>
                 <tr>
                     

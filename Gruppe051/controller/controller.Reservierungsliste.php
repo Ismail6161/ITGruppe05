@@ -5,7 +5,7 @@ Core::publish($Reservierung, "Reservierung");
 
 
 Core::setView("Reservierungsliste", "view2", "list");
-Core::setView("suche", "view1", "list");
+
 Core::$title = "Reservierungen";
 $Kunde = new Reservierung;
     $Kunde->loadFormData();

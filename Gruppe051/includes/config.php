@@ -1,8 +1,12 @@
 <?php
-$hostname = "141.47.76.106";
-$database = "ws2021005";
-$username = "ws2021005";
-$password = "2423e9y";
+//$hostname = "141.47.76.106";
+//$database = "ws2021005";
+//$username = "ws2021005";
+//$password = "2423e9y";
+$hostname = "localhost";
+$database = "Test";
+$username = "root";
+$password = "766561";
 $title="Generierte Web-Anwendung";
 $defaultTask="hom  e";
 $debugmode = 1;

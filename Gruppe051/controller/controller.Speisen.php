@@ -4,7 +4,6 @@ $Speisekarte= Speise::findAll();
 Core::publish($Speisekarte, "Speisekarte");
 
 Core::setView("Speisen", "view2", "list");
-Core::setView("suche", "view1", "list");
 Core::$title = "Speisekarte";
 $Speise = new Speise;
 if(count($_POST)){

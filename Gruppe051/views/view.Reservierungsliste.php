@@ -4,6 +4,9 @@
         <?php $Kunde = new Reservierung; ?>
 
         <table data-role="table" id="tbl_Reservierung" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+<form>
+<input id="filterTable-input" data-type="search">
+</form>
             <thead>
                 <tr>
                     <th><?= $Kunde->renderHeader("Datum"); ?></th>   
