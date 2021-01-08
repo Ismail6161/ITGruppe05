@@ -38,4 +38,5 @@ Core::setTaskMap(array(
 'Reservierungstisch'=>'controller.Reservierungstisch.php',
 'test'=>'controller.test.php',
 'test1'=>'controller.test1.php',
+'Reservierung_B'=>'controller.Reservierung_B.php',
 ));

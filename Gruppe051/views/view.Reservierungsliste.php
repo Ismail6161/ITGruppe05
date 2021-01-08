@@ -29,7 +29,7 @@
                 <?php foreach ($Reservierung as $Kunde) { ?>
                     <tr>
                         <td><a href="?task=Reservierungstisch&id=<?=$Kunde->id?>"><?= $Kunde->render("Datum"); ?></a></td>
-                        <td><?= $Kunde->render("Uhrzeit"); ?></td>
+                        <td><a href="?task=Reservierung_B&id=<?=$Kunde->id?>"><?= $Kunde->render("Uhrzeit"); ?></td>
                        
                         <td><?= $Kunde->render("Coronadaten_Vorname"); ?></td>
                         <td><?= $Kunde->render("Coronadaten_Nachname"); ?></td>

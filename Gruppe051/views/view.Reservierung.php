@@ -1,4 +1,4 @@
-Nach der Reservierung gelangen Sie direkt zur Speisekarte.
+<center><h2>Nach der Reservierung gelangen Sie direkt zur Speisekarte und können Bestellen was ihr Herz begehrt.</h2></center>
 <?php $Reservierung = Core::import("Reservierung");
 ?>
 <form id="form_Reservierung" method="post" action="" data-ajax="false" enctype="multipart/form-data"> 
@@ -17,5 +17,9 @@ $Reservierung->renderLabel("Coronadaten_Telefonnummer");$Reservierung->render("C
 ?>
 
 <label for="speichern"></label><button type="submit" name="speichern" id="speichern" value="1" >Reservieren</button>
+</div>
+
+<div data-role="footer">
+<h4><i>Longwy</i></h4>
 </div>
 </form>

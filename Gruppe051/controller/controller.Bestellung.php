@@ -23,7 +23,7 @@ Core::addError("Der Datenbankeintrag war nicht erfolgreich");
 Core::addError("Die Eingegebenen Daten waren nicht korrekt");
 }
 }
-
+Core::addMessage("Bestellposition wurde erfolgreich hinzugefügt.");
 
 
 Speise::$settings["identifier"]="Bezeichnung";
@@ -34,5 +34,6 @@ Core::publish($_Speise, "_Speise");
 Reservierung::$settings["identifier"]="Datum";
 $_Reservierung = Reservierung::findAll(Reservierung::SQL_SELECT_IGNORE_DERIVED);
 Core::publish($_Reservierung, "_Reservierung");
+
 
 Core::publish($Position, "Position");

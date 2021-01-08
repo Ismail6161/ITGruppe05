@@ -54,5 +54,5 @@ $hover = "entfernen";
 <a href="?task=Bestellung" class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-left" data-ajax="false">Neuanlegen</a><br>
 <br>
 <div data-role="footer">
-<h4>Powered by Hochschule Pforzheim</h4>
+<h4><i>Longwy</i></h4>
 </div>

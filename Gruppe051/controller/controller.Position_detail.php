@@ -1,11 +1,11 @@
 <?php
 Core::setView("Position_detail", "view1", "edit");
-Core::$title = "Artikeldaten ändern";
-$Bestellung = new Position;
-$Bestellung->loadDBData($_GET['id']);
+Core::$title = "Bestellung ändern";
+$Bestellungdetail = new Position;
+$Bestellungdetail->loadDBData($_GET['id']);
 if (count($_POST) > 0) {
-    $Bestellung->loadFormData();
-    $result=$Bestellung->update();
+    $Bestellungdetail->loadFormData();
+    $result=$Bestellungdetail->update();
     
     if($result){
         Core::addMessage("Daten erfolgreich gespeichert");
@@ -25,4 +25,4 @@ Reservierung::$settings["identifier"]="Datum";
 $_Reservierung = Reservierung::findAll(Reservierung::SQL_SELECT_IGNORE_DERIVED);
 Core::publish($_Reservierung, "_Reservierung");
 
-Core::publish($Bestellung, "Bestellung");
+Core::publish($Bestellungdetail, "Bestellungdetail");

@@ -1,4 +1,5 @@
 <?php
+Core::checkAccessLevel(1);
 Core::$title = "Reservierungen";
 $Reservierung= Reservierung::findAll();
 Core::publish($Reservierung, "Reservierung");

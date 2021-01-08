@@ -12,4 +12,3 @@ if (count($_POST) > 0) {
    // Core::publiirect("artikesh($artikelliste, "artikelliste");
     }
 Core::publish($Reservierung, "Reservierung");
-$a;
