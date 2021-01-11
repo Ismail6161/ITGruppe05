@@ -6,7 +6,7 @@ Core::setViewScheme("view1", "list", "Position");
 $Position_list=[];
 $Position=new Position();
 Position::$activeViewport="list";
-$Position_list=Position::findAll();
+$Position_list=Position::findAll(Position::SQL_SELECT_ALL);
 
 Core::publish($Position_list, "Position_list");
 Core::publish($Position, "Position");
