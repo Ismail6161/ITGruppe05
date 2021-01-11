@@ -1,4 +1,4 @@
-<center><h2>Nach der Reservierung gelangen Sie direkt zur Speisekarte und können Bestellen was ihr Herz begehrt.</h2></center>
+<center><h2>Nach der Reservierung gelangen Sie direkt zur Speisekarte und können Bestellen, was ihr Herz begehrt.</h2></center>
 <?php $Reservierung = Core::import("Reservierung");
 ?>
 <form id="form_Reservierung" method="post" action="" data-ajax="false" enctype="multipart/form-data"> 

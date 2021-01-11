@@ -11,7 +11,7 @@ if(count($_POST)>0){
 $a= $Position->loadFormData();
 if($a===true){
 if($Position->create()!="0"){
-
+Core::addMessage("Bestellposition wurde erfolgreich hinzugefügt.");
 
 
 $Position=new Position();
@@ -23,7 +23,7 @@ Core::addError("Der Datenbankeintrag war nicht erfolgreich");
 Core::addError("Die Eingegebenen Daten waren nicht korrekt");
 }
 }
-Core::addMessage("Bestellposition wurde erfolgreich hinzugefügt.");
+
 
 
 Speise::$settings["identifier"]="Bezeichnung";

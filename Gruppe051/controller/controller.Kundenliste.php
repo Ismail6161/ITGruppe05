@@ -17,4 +17,3 @@ if(count($_POST)){
 
 }
 Core::publish($Kundenliste, "Kundenliste");
-

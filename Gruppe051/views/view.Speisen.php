@@ -5,6 +5,7 @@
 <div data-role="ui-bar ui-bar-a">
 <form>
 <input id="filterTable-input" data-type="search">
+
 </form>
 <h3>Bestellung abgeben
 <div class="tooltip_hs">
@@ -34,7 +35,9 @@
                         <th><?= $klasse->render("Bild"); ?></th> 
                         <td><?= $klasse->render("Einzelpreis"); ?></td>
                         <td><?= $klasse->render("Beschreibung"); ?></td>
-                        
+              
                     <?php } ?>
+                           
                 </tr>
+                
             </tbody>
